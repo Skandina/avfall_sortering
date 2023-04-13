@@ -1,0 +1,67 @@
+.Title
+{
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 300;
+    text-align:center;
+    position:relative;
+    top:200px;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.search {
+  position: relative;
+  width: 410px;
+  height: 42px;
+  margin: 0 auto;
+  top:250px;
+  font-weight: 100;
+  right : 15px;
+  border: 1px solid #F1F1F1;
+  border-radius:50px;
+  padding: 5px 12px;
+  font-size: 25px;
+}
+
+.glass {
+  position : absolute;
+  width: 25px;
+  top: 15px;
+  right: 20px;
+  margin: 0;
+}
+
+.upload {
+  position : absolute;
+  width: 35px;
+  top: 10px;
+  right : -15px;
+  margin: 0;
+}
+
+.addfile {
+  position:relative;
+  width:200px;
+  height:25px;
+
+}
+
+.submit {
+  position:relative;
+  width:60px;
+  height:22px;
+}
+
+.img_input {
+  position:relative;
+  margin: 0 auto;
+  top : 350px;
+  display: flex;
+  justify-content: center;
+}
+
+input::placeholder {
+  font-size : 18px;
+  width : 300px;
+}
+
