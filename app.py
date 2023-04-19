@@ -44,5 +44,5 @@ def ai_image(image):
     else : 
         return("can't recognize what it is")
 
-def how_to_sort():
+#def how_to_sort():
 
