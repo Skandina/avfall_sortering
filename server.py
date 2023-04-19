@@ -38,8 +38,7 @@ def add_image():
             print('The image file has added :', filename)
             image = cv2.imread('/home/separk/sortering/img_data/'+filename, cv2.IMREAD_UNCHANGED)
             result = ai_image(image)
-            final_result = str(result)
-            return (final_result)
+            return (result)
         else:
             return flash('choose a proper image') 
 
