@@ -4,10 +4,12 @@ from werkzeug.utils import secure_filename
 import mysql.connector
 from mysql.connector import Error
 import secret 
+from app import ai_image
+import cv2
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/home/ubuntu/image_data'
+UPLOAD_FOLDER = '/home/separk/sortering/img_data'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 HEX_SEC_KEY = secret.secret_key()
@@ -32,8 +34,12 @@ def add_image():
         if file and allowed_file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print('hahaha')
-            return ('successfully uploaded')
+#            flash('successfully uploaded')
+            print('The image file has added :', filename)
+            image = cv2.imread('/home/separk/sortering/img_data/'+filename, cv2.IMREAD_UNCHANGED)
+            result = ai_image(image)
+            final_result = str(result)
+            return (final_result)
         else:
             return flash('choose a proper image') 
 
@@ -41,7 +47,5 @@ def allowed_file(filename):
     #Add allowed file types here
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONSmport os
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8000)
