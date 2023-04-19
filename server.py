@@ -32,7 +32,6 @@ def add_image():
         if file and allowed_file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('successfully uploaded')
             print('hahaha')
             return ('successfully uploaded')
         else:
