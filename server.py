@@ -31,7 +31,7 @@ def add_image():
             print('The image file has added :', filename)
             image = cv2.imread('/home/separk/sortering/img_data/'+filename, cv2.IMREAD_UNCHANGED)
             waste = ai_image(image)
-            return how_to_sort(waste)
+            return render_template('sorting_result.html', waste=waste)
     else:
         return('choose a proper image') 
 

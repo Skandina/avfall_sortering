@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <py-env>
+	- paths:
+          - /data_connect.py
+      </py-env>
+    </head>
+
+  <body>
+    <h1> Hur sorterar man {{waste}}? </h1>
+    <py-script>
+      from data_connect import how_to_sort
+      result = how_to_sort({{waste}})
+      print("result") 
+    </py-script>
+  </body>
+</html>
+
