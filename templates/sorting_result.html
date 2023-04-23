@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-      <py-env>
-	- paths:
-          - /data_connect.py
-      </py-env>
-    </head>
+     <head>
+<!--      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>-->
+     </head>
 
-  <body>
-    <h1> Hur sorterar man {{waste}}? </h1>
-    <py-script>
-      from data_connect import how_to_sort
-      result = how_to_sort({{waste}})
-      print("result") 
-    </py-script>
-  </body>
+     <body>
+        <h1> Hur sorterar man {{waste}}? </h1>
+	<img src="static/img/bikarbonat.jpeg" height="180" width="300">
+	<p>{{data}}</p>
+     </body>
 </html>
 

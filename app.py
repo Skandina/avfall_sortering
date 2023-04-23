@@ -8,7 +8,7 @@ from PIL import Image
 
 model_filename = "keras_model.h5"
 model = tensorflow.keras.models.load_model(model_filename, compile=False)
-image = cv2.imread('13.jpeg', cv2.IMREAD_UNCHANGED)
+#image = cv2.imread('13.jpeg', cv2.IMREAD_UNCHANGED)
 
 def preprocessing(image):
     dim = (224,224) 
@@ -40,6 +40,5 @@ def ai_image(image):
     else : 
         waste = ("can't recognize what it is")
   
-#    a = how_to_sort(waste)
     return waste
 

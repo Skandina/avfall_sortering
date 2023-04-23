@@ -11,7 +11,7 @@ import cv2
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/home/separk/sortering/img_data'
+UPLOAD_FOLDER = '/home/separk/sortering/img_temp'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 HEX_SEC_KEY = secret.secret_key()
@@ -29,11 +29,20 @@ def add_image():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             print('The image file has added :', filename)
-            image = cv2.imread('/home/separk/sortering/img_data/'+filename, cv2.IMREAD_UNCHANGED)
+            image = cv2.imread('/home/separk/sortering/img_temp/'+filename, cv2.IMREAD_UNCHANGED)
             waste = ai_image(image)
-            return render_template('sorting_result.html', waste=waste)
-    else:
-        return('choose a proper image') 
+            data = how_to_sort(waste)
+            return render_template('sorting_result.html', waste=waste, data=data)
+        else:
+            return('choose a proper image') 
+
+#@app.route('/sorting_result', methods=['GET'])
+#def sorting_result():
+#    filename = request.args.get('filename')
+#    image = cv2.imread('/home/separk/sortering/img_temp/'+ filename, cv2.IMREAD_UNCHANGED)
+#    waste_name = ai_image(image)
+#    data = how_to_sort(waste_name)
+#    return render_template('sorting_result.html', waste_name=waste_name, data=data)
 
 def allowed_file(filename):
     #Add allowed file types here
