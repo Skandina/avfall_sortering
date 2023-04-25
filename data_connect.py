@@ -1,6 +1,7 @@
 import mysql.connector
 
 def how_to_sort(waste):
+#    if waste == None:
     conn = mysql.connector.connect(
             user='adminuser', 
             password='91Djemals', 
@@ -10,9 +11,7 @@ def how_to_sort(waste):
         db_info = conn.get_server_info()
         print('mysql Version : ', db_info)
         cursor = conn.cursor()
-        print("A")
-        cursor.execute(f"""SELECT waste_text FROM how_to_sort WHERE waste_name = '{waste}'""")
-        print("B")
+        cursor.execute(f"""SELECT waste_sort FROM how_to_sort WHERE waste_name = '{waste}'""")
         rows = cursor.fetchone()
     return (rows[0])
 

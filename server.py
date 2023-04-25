@@ -8,7 +8,6 @@ from app import ai_image
 from data_connect import how_to_sort
 import cv2
 
-
 app = Flask(__name__)
 
 UPLOAD_FOLDER = '/home/separk/sortering/img_temp'
@@ -34,18 +33,9 @@ def add_image():
             data = how_to_sort(waste)
             return render_template('sorting_result.html', waste=waste, data=data)
         else:
-            return('choose a proper image') 
-
-#@app.route('/sorting_result', methods=['GET'])
-#def sorting_result():
-#    filename = request.args.get('filename')
-#    image = cv2.imread('/home/separk/sortering/img_temp/'+ filename, cv2.IMREAD_UNCHANGED)
-#    waste_name = ai_image(image)
-#    data = how_to_sort(waste_name)
-#    return render_template('sorting_result.html', waste_name=waste_name, data=data)
+            return('choose an image') 
 
 def allowed_file(filename):
-    #Add allowed file types here
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

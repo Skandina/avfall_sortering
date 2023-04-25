@@ -1,3 +1,10 @@
-0 vanillinsocker
-1 bakpulver
-2 bikarbonat
+0 färgatglas/metallock
+1 ofärgatglas/plastlock
+2 Pant
+3 plast
+4 metal
+5 metal/plastlock
+6 paper
+7 paper/milkpackage
+8 ofärgatglas/metallock
+9 färgatglas/plastlock

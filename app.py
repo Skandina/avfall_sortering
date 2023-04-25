@@ -4,7 +4,6 @@ from tensorflow import keras
 from numpy import asarray
 import cv2
 from PIL import Image
-#from data_connect import how_to_sort
 
 model_filename = "keras_model.h5"
 model = tensorflow.keras.models.load_model(model_filename, compile=False)
@@ -29,13 +28,34 @@ def ai_image(image):
         exit()
 
     if (prediction[0,0] >= 0.5):
-        waste = "vanillinsocker"
+        waste = "färgat_metallock"
 
     elif (prediction[0,1] >= 0.5):
-        waste = "bakpulver"
+        waste = "ofärgat_plastlock"
   
     elif (prediction[0,2] >= 0.5):
-        waste = "bikarbonat"
+        waste = "pant"
+
+    elif (prediction[0,3] >= 0.5):
+        waste = "plast"
+ 
+    elif (prediction[0,4] >= 0.5):
+        waste = "metall"
+
+    elif (prediction[0,5] >= 0.5):
+        waste = "metall_plastlock"
+
+    elif (prediction[0,6] >= 0.5):
+        waste = "papper"
+
+    elif (prediction[0,7] >= 0.5):
+        waste = "papper"
+
+    elif (prediction[0,8] >= 0.5):
+        waste = "ofärgat_metallock"
+
+    elif (prediction[0,9] >= 0.5):
+        waste = "färgat_plastlock"
 
     else : 
         waste = ("can't recognize what it is")
