@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
      <head>
-<!--      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-<script defer src="https://pyscript.net/alpha/pyscript.js"></script>-->
+	     <title>How to separate</title>
      </head>
 
      <body>
-        <h1> Hur sorterar man {{waste}}? </h1>
-	<img src="../static/img/papper.jpg" width="500" height="500"/>
-	<p>{{data}}</p>
+        <h1> How to separate {{waste}}? </h1>
+	<img src="{{ url_for('static', filename='img/{}.jpg'.format(waste)) }}" width="500"/>
+	<p style="font-size: 20px;">{{ chat|safe }}</p>
      </body>
 </html>
+
 

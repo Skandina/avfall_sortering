@@ -10,7 +10,8 @@ model = tensorflow.keras.models.load_model(model_filename, compile=False)
 #image = cv2.imread('13.jpeg', cv2.IMREAD_UNCHANGED)
 
 def preprocessing(image):
-    dim = (224,224) 
+    image = np.array(image)
+    dim = (224,224)
     image_resized = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
     image_normalized = (image_resized.astype(np.float32) / 127.0) - 1
     image_reshaped = image_normalized.reshape((1,224,224,3))
@@ -21,6 +22,7 @@ def predict(image):
     return prediction
 
 def ai_image(image):
+     
     preprocessed = preprocessing(image) 
     prediction = predict(preprocessed) 
 
@@ -28,37 +30,37 @@ def ai_image(image):
         exit()
 
     if (prediction[0,0] >= 0.5):
-        waste = "färgat_metallock"
+        waste = "colored glass with metal cap"
 
     elif (prediction[0,1] >= 0.5):
-        waste = "ofärgat_plastlock"
+        waste = "transparent glass with plastic cap"
   
     elif (prediction[0,2] >= 0.5):
         waste = "pant"
 
     elif (prediction[0,3] >= 0.5):
-        waste = "plast"
+        waste = "plastic"
  
     elif (prediction[0,4] >= 0.5):
-        waste = "metall"
+        waste = "metal can"
 
     elif (prediction[0,5] >= 0.5):
-        waste = "metall_plastlock"
+        waste = "metal tube with plastic cap"
 
     elif (prediction[0,6] >= 0.5):
-        waste = "papper"
+        waste = "paper"
 
     elif (prediction[0,7] >= 0.5):
-        waste = "papper"
+        waste = "milk package"
 
     elif (prediction[0,8] >= 0.5):
-        waste = "ofärgat_metallock"
+        waste = "transparent glass with metal cap"
 
     elif (prediction[0,9] >= 0.5):
-        waste = "färgat_plastlock"
+        waste = "colored glass with plastic cap"
 
     else : 
-        waste = ("can't recognize what it is")
-  
+        waste = "unknown"
+
     return waste
 
