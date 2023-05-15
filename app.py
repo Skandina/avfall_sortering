@@ -30,37 +30,25 @@ def ai_image(image):
         exit()
 
     if (prediction[0,0] >= 0.5):
-        waste = "colored glass with metal cap"
+        waste = "Aluminum containers"
 
     elif (prediction[0,1] >= 0.5):
-        waste = "transparent glass with plastic cap"
+        waste = "plastics"
   
     elif (prediction[0,2] >= 0.5):
-        waste = "pant"
+        waste = "plastic bottle(pant)"
 
     elif (prediction[0,3] >= 0.5):
-        waste = "plastic"
+        waste = "paper"
  
     elif (prediction[0,4] >= 0.5):
-        waste = "metal can"
+        waste = "glass"
 
     elif (prediction[0,5] >= 0.5):
-        waste = "metal tube with plastic cap"
-
-    elif (prediction[0,6] >= 0.5):
-        waste = "paper"
-
-    elif (prediction[0,7] >= 0.5):
-        waste = "milk package"
-
-    elif (prediction[0,8] >= 0.5):
-        waste = "transparent glass with metal cap"
-
-    elif (prediction[0,9] >= 0.5):
-        waste = "colored glass with plastic cap"
+        waste = "colored glass bottle with a metal lid"
 
     else : 
-        waste = "unknown"
+        waste = "garbage"
 
     return waste
 

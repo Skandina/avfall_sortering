@@ -1,4 +1,0 @@
-secret.py
-tmp.txt
-__pycache__/
-img_temp/
